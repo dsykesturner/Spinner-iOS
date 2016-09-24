@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65A43DFF1D8E348A00039BB7 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A43DFE1D8E348A00039BB7 /* SettingsTableViewController.swift */; };
+		65A43E011D8E4C6A00039BB7 /* ColourExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A43E001D8E4C6A00039BB7 /* ColourExtension.swift */; };
+		65A43E031D8E933300039BB7 /* NewCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A43E021D8E933200039BB7 /* NewCategoryTableViewController.swift */; };
 		65D023551D839AF300F6C862 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D023541D839AF300F6C862 /* AppDelegate.swift */; };
 		65D023571D839AF300F6C862 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D023561D839AF300F6C862 /* ViewController.swift */; };
 		65D0235A1D839AF300F6C862 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D023581D839AF300F6C862 /* Main.storyboard */; };
@@ -14,6 +17,9 @@
 		65D0235F1D839AF300F6C862 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D0235D1D839AF300F6C862 /* LaunchScreen.storyboard */; };
 		65D0236A1D839AF400F6C862 /* SpinnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D023691D839AF400F6C862 /* SpinnerTests.swift */; };
 		65D023751D839AF400F6C862 /* SpinnerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D023741D839AF400F6C862 /* SpinnerUITests.swift */; };
+		65D023851D841F0B00F6C862 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D023841D841F0B00F6C862 /* Spinner.swift */; };
+		65D023871D84325F00F6C862 /* Slice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D023861D84325F00F6C862 /* Slice.swift */; };
+		65EDF2031D8EA86C00A61A6A /* NewCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EDF2021D8EA86C00A61A6A /* NewCategoryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		65A43DFE1D8E348A00039BB7 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		65A43E001D8E4C6A00039BB7 /* ColourExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColourExtension.swift; sourceTree = "<group>"; };
+		65A43E021D8E933200039BB7 /* NewCategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCategoryTableViewController.swift; sourceTree = "<group>"; };
 		65D023511D839AF300F6C862 /* Spinner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spinner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D023541D839AF300F6C862 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65D023561D839AF300F6C862 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +56,9 @@
 		65D023701D839AF400F6C862 /* SpinnerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpinnerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D023741D839AF400F6C862 /* SpinnerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerUITests.swift; sourceTree = "<group>"; };
 		65D023761D839AF400F6C862 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65D023841D841F0B00F6C862 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		65D023861D84325F00F6C862 /* Slice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slice.swift; sourceTree = "<group>"; };
+		65EDF2021D8EA86C00A61A6A /* NewCategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCategoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +111,12 @@
 			children = (
 				65D023541D839AF300F6C862 /* AppDelegate.swift */,
 				65D023561D839AF300F6C862 /* ViewController.swift */,
+				65A43DFE1D8E348A00039BB7 /* SettingsTableViewController.swift */,
+				65A43E021D8E933200039BB7 /* NewCategoryTableViewController.swift */,
+				65EDF2021D8EA86C00A61A6A /* NewCategoryTableViewCell.swift */,
+				65D023841D841F0B00F6C862 /* Spinner.swift */,
+				65D023861D84325F00F6C862 /* Slice.swift */,
+				65A43E001D8E4C6A00039BB7 /* ColourExtension.swift */,
 				65D023581D839AF300F6C862 /* Main.storyboard */,
 				65D0235B1D839AF300F6C862 /* Assets.xcassets */,
 				65D0235D1D839AF300F6C862 /* LaunchScreen.storyboard */,
@@ -193,7 +211,7 @@
 				TargetAttributes = {
 					65D023501D839AF300F6C862 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = MBH98PBY69;
+						DevelopmentTeam = BU3JKZ42Q4;
 						ProvisioningStyle = Automatic;
 					};
 					65D023641D839AF400F6C862 = {
@@ -263,6 +281,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				65D023571D839AF300F6C862 /* ViewController.swift in Sources */,
+				65A43E011D8E4C6A00039BB7 /* ColourExtension.swift in Sources */,
+				65D023851D841F0B00F6C862 /* Spinner.swift in Sources */,
+				65A43DFF1D8E348A00039BB7 /* SettingsTableViewController.swift in Sources */,
+				65EDF2031D8EA86C00A61A6A /* NewCategoryTableViewCell.swift in Sources */,
+				65D023871D84325F00F6C862 /* Slice.swift in Sources */,
+				65A43E031D8E933300039BB7 /* NewCategoryTableViewController.swift in Sources */,
 				65D023551D839AF300F6C862 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,11 +439,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MBH98PBY69;
+				DEVELOPMENT_TEAM = BU3JKZ42Q4;
 				INFOPLIST_FILE = Spinner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.universeapps.Spinner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.universeapps.musicspinner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -429,11 +453,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MBH98PBY69;
+				DEVELOPMENT_TEAM = BU3JKZ42Q4;
 				INFOPLIST_FILE = Spinner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.universeapps.Spinner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.universeapps.musicspinner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -516,6 +540,7 @@
 				65D0237B1D839AF400F6C862 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65D0237C1D839AF400F6C862 /* Build configuration list for PBXNativeTarget "SpinnerTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +549,7 @@
 				65D0237E1D839AF400F6C862 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		65D0237F1D839AF400F6C862 /* Build configuration list for PBXNativeTarget "SpinnerUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +558,7 @@
 				65D023811D839AF400F6C862 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

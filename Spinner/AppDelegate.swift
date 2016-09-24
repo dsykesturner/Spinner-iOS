@@ -12,7 +12,83 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    let musicList = ["Justin Bieber","Skip-hop","Summer Tunez","Geelong Theme Song","90s Dance Party","Drunk Sing-a-longs","Cher","Britney","Abba","Audiobooks","Splendour Mems","Hilary Duff","90s Pop","Ke$ha","Funfunfun"]
+    let moneyList = ["$20","$100","$40","$200","$60","$0.01","$10,000","$10","$90","$30","$70","$50","$80"]
+    
+    var spinnerLists: [[String]]! {
+        get {
+            if let l = UserDefaults.standard.array(forKey: "spinnerLists") as? [[String]] {
+                return l
+            } else {
+                return [musicList, moneyList, ["numbers"]]
+            }
+        }
+        set(newLists) {
+            UserDefaults.standard.set(newLists, forKey: "spinnerLists")
+        }
+    }
+    var selectedSpinnerIndex: Int! {
+        get {
+            return UserDefaults.standard.integer(forKey: "spinnerIndex")
+        }
+        set(newIndex) {
+            UserDefaults.standard.set(newIndex, forKey: "spinnerIndex")
+        }
+    }
+    var radius: Int! {
+        get {
+            let r = UserDefaults.standard.integer(forKey: "radius")
+            if r <= 0 {
+                return Int((self.window?.frame.size.height)!/2)
+            } else {
+                return r
+            }
+        }
+        set(newRadius) {
+            UserDefaults.standard.set(newRadius, forKey: "radius")
+        }
+    }
+    var friction: Double! {
+        get {
+            let d = UserDefaults.standard.double(forKey: "double")
+            if d <= 0.0 {
+                return 0.992
+            } else {
+                return d
+            }
+        }
+        set(newFriction) {
+            UserDefaults.standard.set(newFriction, forKey: "double")
+        }
+    }
+    var sections: Int! {
+        // Note: Only applicable for the numbers set
+        get {
+            let s = UserDefaults.standard.integer(forKey: "sections")
+            if s <= 0 {
+                return 20
+            } else {
+                return s
+            }
+        }
+        set(newSections) {
+            UserDefaults.standard.set(newSections, forKey: "sections")
+        }
+    }
+    var textSize: Int! {
+        get {
+            let s = UserDefaults.standard.integer(forKey: "textSize")
+            if s <= 0 {
+                return 24
+            } else {
+                return s
+            }
+        }
+        set(newSize) {
+            UserDefaults.standard.set(newSize, forKey: "textSize")
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -40,7 +116,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
+func appDelegate() -> AppDelegate!
+{
+    return UIApplication.shared.delegate as! AppDelegate
+}
