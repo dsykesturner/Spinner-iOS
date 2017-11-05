@@ -10,36 +10,8 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
-    @IBOutlet weak var txtRadius: UITextField!
-    @IBOutlet weak var frictionSlider: UISlider!
-    @IBOutlet weak var txtSections: UITextField!
-    @IBOutlet weak var txtTextSize: UITextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Set bar button font
-        self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "BodoniSvtyTwoOSITCTT-Book", size: 17)!], for: UIControlState.normal)
-        self.navigationItem.backBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "BodoniSvtyTwoOSITCTT-Book", size: 17)!], for: UIControlState.normal)
-        
-        self.txtRadius.text = "\(appDelegate().radius!)"
-        self.txtSections.text = "\(appDelegate().sections!)"
-        self.txtTextSize.text = "\(appDelegate().textSize!)"
-        
-        switch appDelegate().friction {
-        case 0.9999:
-            frictionSlider.value = 1
-        case 0.999:
-            frictionSlider.value = 2
-        case 0.993:
-            frictionSlider.value = 3
-        case 0.96:
-            frictionSlider.value = 4
-        case 0.9:
-            frictionSlider.value = 5
-        default:
-            frictionSlider.value = 3
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,49 +20,95 @@ class SettingsTableViewController: UITableViewController {
         let cell = tableView.cellForRow(at: IndexPath(row: appDelegate().selectedSpinnerIndex, section: 0))
         cell?.accessoryType = .checkmark
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        // Set the right button bar
+        let rightButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(close))
+        rightButton.title = "Done"
+        self.navigationController?.navigationBar.topItem?.setRightBarButton(rightButton, animated: false)
+        self.navigationItem.setRightBarButton(rightButton, animated: false)
+        
+        // Set the left button bar
+        let leftButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(toggleEditing))
+        leftButton.title = "Edit"
+        self.navigationController?.navigationBar.topItem?.setLeftBarButton(leftButton, animated: false)
+        self.navigationItem.setLeftBarButton(leftButton, animated: false)
+        
+        // Set bar button font
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.setTitleTextAttributes([ NSAttributedStringKey.font: UIFont(name: "BodoniSvtyTwoOSITCTT-Book", size: 17)!], for: UIControlState.normal)
+        self.navigationController?.navigationBar.topItem?.leftBarButtonItem?.setTitleTextAttributes([ NSAttributedStringKey.font: UIFont(name: "BodoniSvtyTwoOSITCTT-Book", size: 17)!], for: UIControlState.normal)
+        self.navigationItem.backBarButtonItem?.setTitleTextAttributes([NSAttributedStringKey.font: UIFont(name: "BodoniSvtyTwoOSITCTT-Book", size: 17)!], for: UIControlState.normal)
+        
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func sliderTouchUp() {
-        
-        frictionSlider.value = Float(Int(frictionSlider.value))
-    }
 
-    @IBAction func btnCloseTapped(_ sender: AnyObject) {
-        
-        // Find slider translated value
-        let sliderValue = Int(frictionSlider.value)
-        var friction = 0.0
-        switch sliderValue {
-        case 1:
-            friction = 0.9999
-        case 2:
-            friction = 0.993
-        case 3:
-            friction = 0.99
-        case 4:
-            friction = 0.96
-        case 5:
-            friction = 0.9
-        default:
-            friction = 0.993
-        }
-        
-        // Save and close
-        appDelegate().radius = Int(txtRadius.text!)
-        appDelegate().sections = Int(txtSections.text!)
-        appDelegate().friction = friction
-        appDelegate().textSize = Int(txtTextSize.text!)
-        
-        txtRadius.resignFirstResponder()
-        txtSections.resignFirstResponder()
-        txtTextSize.resignFirstResponder()
+    @objc func close() {
         
         self.dismiss(animated: true, completion: nil)
     }
+   
+    @objc func toggleEditing () {
+        
+        tableView.isEditing = !tableView.isEditing
+    }
+    
+    // MARK: - UITableViewDataSource
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 2
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if section == 0 {
+            return appDelegate().spinnerLists.count+1
+        } else {
+            return 3
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var cell:UITableViewCell = UITableViewCell()
+        
+        if indexPath.section == 0 {
+            
+            if indexPath.row == tableView.numberOfRows(inSection: 0)-1 {
+                cell = tableView.dequeueReusableCell(withIdentifier: "CategoriesAddNew")!
+            } else {
+                cell = tableView.dequeueReusableCell(withIdentifier: "CategoriesCustom")!
+                cell.textLabel?.text = appDelegate().spinnerLists[indexPath.row].keys.first!
+            }
+            
+        } else {
+            
+            if indexPath.row == 0 {
+                cell = tableView.dequeueReusableCell(withIdentifier: "FineDetailsRadius") as! SettingsRadiusTableViewCell
+            } else if indexPath.row == 1 {
+                cell = tableView.dequeueReusableCell(withIdentifier: "FineDetailsFriction") as! SettingsFrictionTableViewCell
+            } else if indexPath.row == 2 {
+                cell = tableView.dequeueReusableCell(withIdentifier: "FineDetailsTextSize") as! SettingsTextSizeTableViewCell
+            }
+        }
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
+        return (indexPath.section == 0 && indexPath.row <= appDelegate().spinnerLists.count-1)
+    }
+    
+    
+    
+    // MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -111,8 +129,27 @@ class SettingsTableViewController: UITableViewController {
                 newCell?.accessoryType = .checkmark
                 
             } else {
-                // TODO: create new
+
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewCategoryTableViewController")
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
+        
+        print(action)
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        appDelegate().spinnerLists.remove(at: indexPath.row)
+        
+        tableView.reloadData()
+        
+        // Re-alight the selected cell
+        appDelegate().selectedSpinnerIndex = 0
+        let cell = tableView.cellForRow(at: IndexPath(row: appDelegate().selectedSpinnerIndex, section: 0))
+        cell?.accessoryType = .checkmark
     }
 }

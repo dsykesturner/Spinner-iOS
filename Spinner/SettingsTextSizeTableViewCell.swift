@@ -10,9 +10,13 @@ import UIKit
 
 class SettingsTextSizeTableViewCell: UITableViewCell {
 
+    @IBOutlet var textSize: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        textSize.text = "\(appDelegate().textSize!)"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -21,4 +25,8 @@ class SettingsTextSizeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func setNewValue() {
+        
+        appDelegate().textSize = Int(textSize.text!)
+    }
 }

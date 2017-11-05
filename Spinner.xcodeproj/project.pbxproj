@@ -10,6 +10,9 @@
 		65A43DFF1D8E348A00039BB7 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A43DFE1D8E348A00039BB7 /* SettingsTableViewController.swift */; };
 		65A43E011D8E4C6A00039BB7 /* ColourExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A43E001D8E4C6A00039BB7 /* ColourExtension.swift */; };
 		65A43E031D8E933300039BB7 /* NewCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A43E021D8E933200039BB7 /* NewCategoryTableViewController.swift */; };
+		65C9FC6C1D962A45002741CF /* SettingsFrictionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C9FC691D962A45002741CF /* SettingsFrictionTableViewCell.swift */; };
+		65C9FC6D1D962A45002741CF /* SettingsRadiusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C9FC6A1D962A45002741CF /* SettingsRadiusTableViewCell.swift */; };
+		65C9FC6E1D962A45002741CF /* SettingsTextSizeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C9FC6B1D962A45002741CF /* SettingsTextSizeTableViewCell.swift */; };
 		65D023551D839AF300F6C862 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D023541D839AF300F6C862 /* AppDelegate.swift */; };
 		65D023571D839AF300F6C862 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D023561D839AF300F6C862 /* ViewController.swift */; };
 		65D0235A1D839AF300F6C862 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65D023581D839AF300F6C862 /* Main.storyboard */; };
@@ -43,6 +46,9 @@
 		65A43DFE1D8E348A00039BB7 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		65A43E001D8E4C6A00039BB7 /* ColourExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColourExtension.swift; sourceTree = "<group>"; };
 		65A43E021D8E933200039BB7 /* NewCategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCategoryTableViewController.swift; sourceTree = "<group>"; };
+		65C9FC691D962A45002741CF /* SettingsFrictionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsFrictionTableViewCell.swift; sourceTree = "<group>"; };
+		65C9FC6A1D962A45002741CF /* SettingsRadiusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRadiusTableViewCell.swift; sourceTree = "<group>"; };
+		65C9FC6B1D962A45002741CF /* SettingsTextSizeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTextSizeTableViewCell.swift; sourceTree = "<group>"; };
 		65D023511D839AF300F6C862 /* Spinner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spinner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D023541D839AF300F6C862 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65D023561D839AF300F6C862 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +92,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65C9FC6F1D962D31002741CF /* Spinner */ = {
+			isa = PBXGroup;
+			children = (
+				65D023561D839AF300F6C862 /* ViewController.swift */,
+				65D023841D841F0B00F6C862 /* Spinner.swift */,
+				65D023861D84325F00F6C862 /* Slice.swift */,
+			);
+			name = Spinner;
+			sourceTree = "<group>";
+		};
+		65C9FC701D962D3B002741CF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				65A43DFE1D8E348A00039BB7 /* SettingsTableViewController.swift */,
+				65C9FC691D962A45002741CF /* SettingsFrictionTableViewCell.swift */,
+				65C9FC6A1D962A45002741CF /* SettingsRadiusTableViewCell.swift */,
+				65C9FC6B1D962A45002741CF /* SettingsTextSizeTableViewCell.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		65C9FC711D962D4B002741CF /* NewCategory */ = {
+			isa = PBXGroup;
+			children = (
+				65A43E021D8E933200039BB7 /* NewCategoryTableViewController.swift */,
+				65EDF2021D8EA86C00A61A6A /* NewCategoryTableViewCell.swift */,
+			);
+			name = NewCategory;
+			sourceTree = "<group>";
+		};
 		65D023481D839AF300F6C862 = {
 			isa = PBXGroup;
 			children = (
@@ -109,13 +145,10 @@
 		65D023531D839AF300F6C862 /* Spinner */ = {
 			isa = PBXGroup;
 			children = (
+				65C9FC6F1D962D31002741CF /* Spinner */,
+				65C9FC701D962D3B002741CF /* Settings */,
+				65C9FC711D962D4B002741CF /* NewCategory */,
 				65D023541D839AF300F6C862 /* AppDelegate.swift */,
-				65D023561D839AF300F6C862 /* ViewController.swift */,
-				65A43DFE1D8E348A00039BB7 /* SettingsTableViewController.swift */,
-				65A43E021D8E933200039BB7 /* NewCategoryTableViewController.swift */,
-				65EDF2021D8EA86C00A61A6A /* NewCategoryTableViewCell.swift */,
-				65D023841D841F0B00F6C862 /* Spinner.swift */,
-				65D023861D84325F00F6C862 /* Slice.swift */,
 				65A43E001D8E4C6A00039BB7 /* ColourExtension.swift */,
 				65D023581D839AF300F6C862 /* Main.storyboard */,
 				65D0235B1D839AF300F6C862 /* Assets.xcassets */,
@@ -206,23 +239,26 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = UniverseApps;
 				TargetAttributes = {
 					65D023501D839AF300F6C862 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = BU3JKZ42Q4;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 					65D023641D839AF400F6C862 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = MBH98PBY69;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 65D023501D839AF300F6C862;
 					};
 					65D0236F1D839AF400F6C862 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = MBH98PBY69;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 65D023501D839AF300F6C862;
 					};
@@ -280,12 +316,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C9FC6D1D962A45002741CF /* SettingsRadiusTableViewCell.swift in Sources */,
 				65D023571D839AF300F6C862 /* ViewController.swift in Sources */,
 				65A43E011D8E4C6A00039BB7 /* ColourExtension.swift in Sources */,
 				65D023851D841F0B00F6C862 /* Spinner.swift in Sources */,
 				65A43DFF1D8E348A00039BB7 /* SettingsTableViewController.swift in Sources */,
 				65EDF2031D8EA86C00A61A6A /* NewCategoryTableViewCell.swift in Sources */,
+				65C9FC6E1D962A45002741CF /* SettingsTextSizeTableViewCell.swift in Sources */,
 				65D023871D84325F00F6C862 /* Slice.swift in Sources */,
+				65C9FC6C1D962A45002741CF /* SettingsFrictionTableViewCell.swift in Sources */,
 				65A43E031D8E933300039BB7 /* NewCategoryTableViewController.swift in Sources */,
 				65D023551D839AF300F6C862 /* AppDelegate.swift in Sources */,
 			);
@@ -351,7 +390,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -359,7 +400,12 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -401,7 +447,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -409,7 +457,12 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -445,7 +498,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.universeapps.musicspinner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -459,7 +513,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.universeapps.musicspinner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -473,7 +528,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.universeapps.SpinnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Spinner.app/Spinner";
 			};
 			name = Debug;
@@ -488,7 +544,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.universeapps.SpinnerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Spinner.app/Spinner";
 			};
 			name = Release;
@@ -502,7 +559,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.universeapps.SpinnerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Spinner;
 			};
 			name = Debug;
@@ -516,7 +574,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.universeapps.SpinnerUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Spinner;
 			};
 			name = Release;

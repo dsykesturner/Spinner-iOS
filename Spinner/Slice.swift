@@ -46,7 +46,7 @@ class Slice: UIView {
         label.shadowOffset = CGSize(width: 0.3, height: 0.3)
         
         // Rotate the label so it is half way between the remaining rectangle's area
-        label.transform = CGAffineTransform.init(rotationAngle: CGFloat((rotationSlice+(90-rotationSlice)/2) * (M_PI/180.0)))
+        label.transform = CGAffineTransform.init(rotationAngle: CGFloat((rotationSlice+(90-rotationSlice)/2) * (Double.pi/180.0)))
         slice.addSubview(label)
         
         // Create the mask
@@ -57,13 +57,13 @@ class Slice: UIView {
         maskLayer.fillColor = UIColor.green.cgColor
         
         // Rotate it to the correct cut
-        let maskTransform = CGAffineTransform.init(rotationAngle: CGFloat((rotationSlice) * (M_PI/180.0)))
+        let maskTransform = CGAffineTransform.init(rotationAngle: CGFloat((rotationSlice) * (Double.pi/180.0)))
         maskLayer.transform = CATransform3DMakeAffineTransform(maskTransform)
         
         slice.layer.addSublayer(maskLayer)
         slice.layer.mask = maskLayer
         
         // Rotate the slice to the correct position
-        transform = CGAffineTransform.init(rotationAngle: CGFloat(step*Double(number) * (M_PI/180.0)))
+        transform = CGAffineTransform.init(rotationAngle: CGFloat(step*Double(number) * (Double.pi/180.0)))
     }
 }

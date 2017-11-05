@@ -94,7 +94,7 @@ class ViewController: UIViewController {
         if currentAngle >= 0 {
             lastAngles.append(currentAngle)
         } else {
-            lastAngles.append(currentAngle+CGFloat(2*M_PI)) // Add 2*PI to each angle, shifting the circle, so we don't have to deal with any negative values
+            lastAngles.append(currentAngle+CGFloat(2*Double.pi)) // Add 2*PI to each angle, shifting the circle, so we don't have to deal with any negative values
         }
         // Take the last 5 movement points to form an average
         if lastAngles.count > 5 {
@@ -125,7 +125,7 @@ class ViewController: UIViewController {
         refreshSelectedSlice()
     }
     
-    func spin() {
+    @objc func spin() {
         
         // Keep spinning, minus a small amount of friction
         differenceAngle *= CGFloat(appDelegate().friction)
@@ -146,12 +146,23 @@ class ViewController: UIViewController {
     
     func refreshSelectedSlice() {
         
-        let thisSlice = spinner.sliceTextAtDegree(degree: Double(startAngle-currentAngle) * (180.0/M_PI))
+        let thisSlice = spinner.sliceTextAtDegree(degree: Double(startAngle-currentAngle) * (180.0/Double.pi))
         lblSelectedSlice.text = thisSlice.text.uppercased()
     }
     
     func createSpinner() {
         
+        if appDelegate().spinnerLists.count == 0 {
+            let alert = UIAlertController(title: "Empty Spinner", message: "You've run out of spinners :(\nGo to settings to create a new one", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Settings", style: UIAlertActionStyle.default, handler: { (action:UIAlertAction) in
+                let nvc = UINavigationController(rootViewController: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsTableViewController"))
+                self.present(nvc, animated: true, completion: nil)
+                })
+            )
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         if spinner.superview != nil {
             spinner.removeFromSuperview()
         }
@@ -161,14 +172,8 @@ class ViewController: UIViewController {
         
         var spinnerList = [String]()
         
-        if appDelegate().selectedSpinnerIndex == 2 {
-            for i in 0..<appDelegate().sections {
-                spinnerList.append("\(i+1)")
-            }
-        } else {
-            spinnerList = appDelegate().spinnerLists[appDelegate().selectedSpinnerIndex]
-        }
-                
+        spinnerList = appDelegate().spinnerLists[appDelegate().selectedSpinnerIndex].values.first!
+        
         spinner = Spinner(frame: CGRect.init(x: 0, y: 0, width: appDelegate().radius*2, height: appDelegate().radius*2))
         spinner.center = CGPoint.init(x: view.frame.width/2, y: view.frame.height+40)
         spinner.addSlices(names: spinnerList)

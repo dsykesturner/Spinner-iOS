@@ -19,7 +19,7 @@ class NewCategoryTableViewController: UITableViewController, NewCategoryTableVie
         // Add a save button
         let rightButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: #selector(saveAndExit))
         rightButton.title = "Save"
-        rightButton.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "BodoniSvtyTwoOSITCTT-Book", size: 17)!], for: UIControlState.normal)
+        rightButton.setTitleTextAttributes([ NSAttributedStringKey.font: UIFont(name: "BodoniSvtyTwoOSITCTT-Book", size: 17)!], for: UIControlState.normal)
         self.navigationController?.navigationBar.topItem?.setRightBarButton(rightButton, animated: false)
         self.navigationItem.setRightBarButton(rightButton, animated: false)
         
@@ -39,17 +39,25 @@ class NewCategoryTableViewController: UITableViewController, NewCategoryTableVie
         // Dispose of any resources that can be recreated.
     }
     
-    func saveAndExit() {
-        
-        // TODO: not currently viable
-        
-        var newList = [String]()
-        for i in 1 ..< tableView.numberOfRows(inSection: 0) {
-            let cell = tableView.cellForRow(at: IndexPath(row:i, section:0)) as! NewCategoryTableViewCell
-            newList.append(cell.textField.text!)
+    @objc func saveAndExit() {
+
+        guard let categoryName = categoryName else {
+            let alert = UIAlertController(title: "Category Name", message: "Enter a category name to save it", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
         }
         
-        self.dismiss(animated: true, completion: nil)
+        if items.count < 4 {
+            let alert = UIAlertController(title: "Item Count", message: "Enter at least 4 items to save them", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        appDelegate().spinnerLists.append([categoryName:items])
+        
+        self.navigationController?.popViewController(animated: true)
     }
 
     // MARK: - Table view data source
@@ -63,7 +71,6 @@ class NewCategoryTableViewController: UITableViewController, NewCategoryTableVie
 
         return items.count + 2 // 1 for the category name, 1 for the next category item
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -113,7 +120,16 @@ class NewCategoryTableViewController: UITableViewController, NewCategoryTableVie
         }
         
         if index-1 >= items.count {
+            // Add the new item and reload
             items.append(item)
+            tableView.reloadData()
+            
+            // Keep the focus on the current text field
+            let cell = tableView.cellForRow(at: IndexPath(row: index, section: 0)) as! NewCategoryTableViewCell
+            cell.textField.becomeFirstResponder()
+            
+            // Scroll down to show the newly created cell
+            tableView.scrollToRow(at: IndexPath(row: index+1, section: 0), at: UITableViewScrollPosition.bottom, animated: true)
         } else {
             items[index-1] = item
         }

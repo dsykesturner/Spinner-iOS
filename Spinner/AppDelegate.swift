@@ -16,12 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let musicList = ["Justin Bieber","Skip-hop","Summer Tunez","Geelong Theme Song","90s Dance Party","Drunk Sing-a-longs","Cher","Britney","Abba","Audiobooks","Splendour Mems","Hilary Duff","90s Pop","Ke$ha","Funfunfun"]
     let moneyList = ["$20","$100","$40","$200","$60","$0.01","$10,000","$10","$90","$30","$70","$50","$80"]
     
-    var spinnerLists: [[String]]! {
+    var spinnerLists: [[String:[String]]]! {
         get {
-            if let l = UserDefaults.standard.array(forKey: "spinnerLists") as? [[String]] {
+            if let l = UserDefaults.standard.array(forKey: "spinnerLists") as? [[String:[String]]] {
                 return l
             } else {
-                return [musicList, moneyList, ["numbers"]]
+                return [["The Original Wheel":musicList], ["Cash":moneyList]]
             }
         }
         set(newLists) {
@@ -30,7 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     var selectedSpinnerIndex: Int! {
         get {
-            return UserDefaults.standard.integer(forKey: "spinnerIndex")
+            let index = UserDefaults.standard.integer(forKey: "spinnerIndex")
+            if index > self.spinnerLists.count-1 {
+                return 0
+            } else {
+                return index
+            }
         }
         set(newIndex) {
             UserDefaults.standard.set(newIndex, forKey: "spinnerIndex")
